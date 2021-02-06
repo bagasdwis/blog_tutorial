@@ -21,7 +21,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png?3') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon_admin.png') }}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset('assets/datatables-bs4/css/dataTables.bootstrap4.css')}}">
     <!-- Select2 -->

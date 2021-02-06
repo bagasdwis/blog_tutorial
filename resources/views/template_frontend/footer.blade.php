@@ -22,6 +22,30 @@
 	<script src="{{ asset('frontend/assets/js/popper.js') }}"></script>
 	<script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('frontend/assets/js/script.js') }}"></script>
-	
+	 <!-- Sweetalert -->
+    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+	<script>
+	  $(function () {
+
+	    $(document).ready( function () {
+	        // $('.sidebar').click(function(e){
+	        //   $('.preloader').fadeIn();
+	        // })
+
+	        var flash = "{{ Session::has('sukses') }}";
+	        if(flash){
+	            var pesan = "{{ Session::get('sukses') }}"
+	            swal("Sukses", pesan, "success");
+	        }
+	 
+	        var gagal = "{{ Session::has('gagal') }}";
+	        if(gagal){
+	            var pesan = "{{ Session::get('gagal') }}"
+	            swal("Error", pesan, "error");
+	        }
+	    });
+	  })
+	</script>
+	@yield('footer')
 </body>
 </html>

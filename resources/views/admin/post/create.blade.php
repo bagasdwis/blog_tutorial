@@ -55,10 +55,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label text-uppercase">Deskripsi</label>
-                        <textarea id="deskripsi"  placeholder="Deskripsi" class="form-control" rows="3" name="deskripsi"></textarea>
-                    </div>
-                    <div class="form-group">
                       <label class="form-control-label text-uppercase">Konten</label>
                       <textarea class="form-control textarea" name="konten" id="konten" placeholder="Konten"></textarea>
                     </div>

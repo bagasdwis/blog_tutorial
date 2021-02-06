@@ -17,10 +17,6 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     
     public function index()
     {
@@ -80,7 +76,6 @@ class PostController extends Controller
                 'kategori_id' => 'required',
                 'konten' => 'required',
                 'gambar' => 'required',
-                'deskripsi' => 'required'
             ]);
 
             $gambar = $request->gambar;
@@ -94,7 +89,6 @@ class PostController extends Controller
                 'slug' => Str::slug($request->judul),
                 'user_id' => Auth::id(),
                 'status' => $request->status,
-                'deskripsi' =>  $request->deskripsi,
             ]);
 
             $post->tag()->attach($request->tag);
@@ -149,8 +143,7 @@ class PostController extends Controller
             $this->validate($request, [
             'judul' => 'required',
             'kategori_id' => 'required',
-            'konten' => 'required',
-            'deskripsi' => 'required',            
+            'konten' => 'required',       
              ]);
 
             $post = Post::findorfail($id);
@@ -167,7 +160,6 @@ class PostController extends Controller
                 'gambar' => 'img/post/'.$new_gambar,
                 'slug' => Str::slug($request->judul),
                 'status' => $request->status,
-                'deskripsi' =>  $request->deskripsi,
             ];
             }
             else{

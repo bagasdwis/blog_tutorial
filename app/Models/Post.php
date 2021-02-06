@@ -9,7 +9,7 @@ class Post extends Model
 {
     use SoftDeletes;
 
-	protected $fillable = ['judul','kategori_id','deskripsi','konten','gambar','slug','user_id','status'];
+	protected $fillable = ['judul','kategori_id','konten','gambar','slug','user_id','status'];
     protected $table = 'post';
 
     public function kategori(){
@@ -22,5 +22,10 @@ class Post extends Model
 
     public function user(){
     	return $this->belongsTo('App\Models\User');
+    }
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class)->whereNull('parent_id');
     }
 }

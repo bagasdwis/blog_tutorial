@@ -18,7 +18,6 @@ class CreatePostTable extends Migration
             $table->string('judul');
             $table->unsignedBiginteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
-            $table->text('deskripsi');
             $table->text('konten');
             $table->string('gambar');
             $table->unsignedBiginteger('user_id');

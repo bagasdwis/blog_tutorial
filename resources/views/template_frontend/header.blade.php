@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en" class="no-js">
 <head>
 	<title>MI A1 Tutorial</title>
@@ -7,7 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i,900&display=swap" rel="stylesheet">
-	
+	<!-- Favicon-->
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">	
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/mite-assets.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/style.css') }}">
 
@@ -30,9 +32,6 @@
 					<a class="search-button" href="#"><i class="fa fa-search"></i></a>
 					<form action="{{route('blog.cari')}}" method="get" class="form-search">
 						<input type="search" name="cari" placeholder="Cari..."/>
-						<button class="nav-close search-close">
-								<span></span>
-							</button>
 					</form>
 
 					<a href="/" class="navbar-brand font-weight-bold text-uppercase text-base">MI A1 Tutorial
@@ -40,25 +39,17 @@
 
 					<a class="open-menu" href="#"><i class="fa fa-align-justify"></i></a>
 					
-					<div class="collapse navbar-collapse" style="height: 65px;" id="navbarSupportedContent">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="drop-link">
 								<a class="active" href="/">Home</a>
 							</li>
-							<li><a href="{{ route('blog.list') }}">Posts</a></li>
+							<li><a href="{{ route('blog.list') }}">All Posts</a></li>
 							<li class="drop-link">
 								<a href="#">Kategori<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 								<ul class="dropdown">
 									@foreach($filter_kategori as $result1)
-									<li><a href="{{ route('blog.kategori', $result1->slug) }}">{{ $result1->nama_kategori }}</a></li>
-									@endforeach
-								</ul>
-							</li>
-							<li class="drop-link">
-								<a href="#">Tags<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-								<ul class="dropdown">
-									@foreach($filter_tag as $result2)
-									<li><a href="{{ route('blog.tag', $result2->slug) }}">{{ $result2->nama_tag }}</a></li>
+									<li><a href="{{ route('blog.kategori', $result1->slug) }}">{{ $result1->nama_kategori }}<span style="float: right;">{{ $result1->post->count() }}</span></a></li>
 									@endforeach
 								</ul>
 							</li>

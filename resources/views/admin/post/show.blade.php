@@ -37,7 +37,6 @@
                         <span class="badge badge-pill badge-danger" href="{{ route('blog.kategori', $post->kategori->slug) }}">{{$post->kategori->nama_kategori }}</span>
                         <h1>{{ $post->judul }}</h1>
                         <p>{{ $post->created_at->diffForHumans() }} | by {{ $post->user->name }}</p>
-                        <p>{{ $post->deskripsi }}</p>
                         <p>{!! $post->konten !!}</p>
                         Tags : 
                         @foreach($post->tag as $tag)

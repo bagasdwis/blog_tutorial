@@ -35,9 +35,9 @@ class HomeController extends Controller
         $tot_post = Post::count();
         if(Auth::user()->level == 'penulis')
         {
-            $post = Post::whereNull('status')->where('user_id', Auth::id())->get();
+            $post = Post::where('user_id', Auth::id())->where('status',0)->orwhereNull('status')->get();
         } else {
-            $post = Post::where('status', 0)->orWhereNull('status')->get();
+            $post = Post::where('status', 0)->get();
         }
         return view('admin.home.index', compact('post','tot_post','tot_kategori','tot_tag','tot_user'));
     }
